@@ -4,6 +4,20 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        if User.objects.filter(email=email).exists():
+            user = User.objects.get(email=email)
+            if user.check_password(password):
+                messages.info(request, 'Login successful')
+                return redirect('login')
+            else:
+                messages.info(request, 'Password not matching')
+                return redirect('login')
+        else:
+            messages.info(request, 'Email not found')
+            return redirect('login')
     return render(request, 'users/login.html')
 
 def register(request):
