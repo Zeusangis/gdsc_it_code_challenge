@@ -29,6 +29,7 @@ class Alumini(models.Model):
     )
     business_logo_link = models.CharField(_("Business Logo Link"), max_length=100)
     user_id = models.CharField(_("User ID"), max_length=100)
+    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
 
     def __str__(self):
         return self.full_name

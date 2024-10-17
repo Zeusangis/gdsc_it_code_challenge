@@ -1,1 +1,7 @@
-{% extends "main.html" %} {% block content %} {%endblock%}
+{% extends "main.html" %} {% block content %}
+<div class="container grid grid-cols-3 gap-4 mx-auto my-10">
+  <h1 class="text-2xl font-semibold col-span-4">Alumini Business Directory</h1>
+  {% for alumini in aluminis %} {% include "alumini/alumini_cards.html" %}
+  {%endfor %}
+</div>
+{%endblock%}
