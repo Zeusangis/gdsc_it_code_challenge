@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib import messages
-from django.contrib.auth.models import User
+from .models import CustomUser as User
 
 def login(request):
     if request.method == 'POST':
@@ -32,7 +32,7 @@ def register(request):
                 messages.info(request, 'Email already exists')
                 return redirect('register')
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, password=password)
+                user = User.objects.create_user(full_name=(f"{first_name} {last_name}"),  email=email, password=password)
                 user.save()
                 messages.info(request, 'User created')
                 return redirect('login')
