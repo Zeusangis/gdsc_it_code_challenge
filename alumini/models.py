@@ -2,7 +2,8 @@ from django.db import models
 import shortuuid
 from django.utils.translation import gettext_lazy as _
 
-class Alumini:
+
+class Alumini(models.Model):
     id = models.CharField(
         _("ID"), primary_key=True, max_length=22, default=shortuuid.uuid, editable=False
     )
@@ -23,7 +24,9 @@ class Alumini:
     business_description = models.TextField(_("Business Description"), max_length=100)
     business_category = models.CharField(_("Business Category"), max_length=100)
     alumini_discount = models.BooleanField(_("Alumini Discount"), default=False)
-    alumini_discount_description = models.TextField(_("Alumini Discount Description"), max_length=100)
+    alumini_discount_description = models.TextField(
+        _("Alumini Discount Description"), max_length=100
+    )
     business_logo_link = models.CharField(_("Business Logo Link"), max_length=100)
     user_id = models.CharField(_("User ID"), max_length=100)
 
