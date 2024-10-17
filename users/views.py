@@ -18,7 +18,7 @@ def login(request):
         else:
             messages.info(request, 'Email not found')
             return redirect('login')
-    return render(request, 'users/login.html')
+    return render(request, 'alumini/index.html')
 
 def register(request):
     if request.method == 'POST':
