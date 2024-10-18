@@ -1,78 +1,88 @@
 {% load static %}
 <!-- component -->
-<header
-  class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02"
->
-  <!-- logo -->
-  <h1 class="w-3/12">
-    <a class="flex items-center" href="">
-      <img class="h-10" src="{% static 'ulm_logo.png' %}" alt="logo" />
-      <h1 class="text-2xl font-semibold col-span-4">
-        Alumini Business Directory
-      </h1>
-    </a>
-  </h1>
+<section class="hidden md:block">
+  <header
+    class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02"
+  >
+    <!-- logo -->
+    <h1 class="w-3/12">
+      <a class="flex items-center" href="">
+        <img class="h-10" src="{% static 'ulm_logo.png' %}" alt="logo" />
+        <h1 class="text-2xl font-semibold col-span-4">
+          Alumini Business Directory
+        </h1>
+      </a>
+    </h1>
 
-  <div class="w-3/12 flex justify-center">
-    <a href="">
-      <svg
-        class="h-8 p-1 hover:text-[#800000] duration-200"
-        aria-hidden="true"
-        focusable="false"
-        data-prefix="far"
-        data-icon="search"
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
-        class="svg-inline--fa fa-search fa-w-16 fa-9x"
-      >
-        <path
-          fill="currentColor"
-          d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"
-          class=""
-        ></path>
-      </svg>
-    </a>
-  </div>
-
-  <!-- navigation -->
-  <nav class="nav font-semibold text-lg">
-    <ul class="flex items-center">
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer active"
-      >
-        <a href="">Home</a>
-      </li>
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
-      >
-        <a class="flex items-center" href=""
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
+    <div class="w-3/12 flex justify-center">
+      <div class="w-full max-w-sm min-w-[200px]">
+        <div class="relative">
+          <input
+            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-28 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+            placeholder="UI Kits, Dashboards..."
+          />
+          <button
+            class="absolute top-1 right-1 flex items-center rounded bg-[#800000] py-1 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-[#C32148] focus:shadow-none active:[#C32148] hover:bg-[#C32148] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
-          <span>Account</span>
-        </a>
-      </li>
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
-      >
-        <a href=""
-          ><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
-            Logout
-          </button></a
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4 mr-2"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- navigation -->
+    <nav class="nav font-semibold text-lg">
+      <ul class="flex items-center">
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer active"
         >
-      </li>
-    </ul>
-  </nav>
-</header>
+          <a href="">Home</a>
+        </li>
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
+        >
+          <a class="flex items-center" href=""
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+            <span>Account</span>
+          </a>
+        </li>
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
+        >
+          <a href=""
+            ><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
+              Logout
+            </button></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+</section>
