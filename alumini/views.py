@@ -8,5 +8,12 @@ from django.conf import settings
 
 def index(request):
     aluminis = Alumini.objects.all()
+    if request.method == "POST":
+        query = request.POST.get("search")
+        aluminis = Alumini.objects.filter(full_name__icontains=query)
     context = {"aluminis": aluminis}
     return render(request, "alumini/index.html", context)
+
+
+def account(request):
+    return render(request, "alumini/account.html")
