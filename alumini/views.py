@@ -17,3 +17,9 @@ def index(request):
 
 def account(request):
     return render(request, "alumini/account.html")
+
+
+def alumni(request, id):
+    alumni = Alumini.objects.get(id=id)
+    context = {"alumni": alumni}
+    return render(request, "alumini/alumni.html", context)
