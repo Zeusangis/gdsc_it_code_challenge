@@ -22,8 +22,7 @@ def login(request):
 
 def register(request):
     if request.method == "POST":
-        first_name = request.POST["fname"]
-        last_name = request.POST["lname"]
+        name = request.POST["name"]
         email = request.POST["email"]
         password = request.POST["password"]
         cpassword = request.POST["cpassword"]
@@ -33,7 +32,7 @@ def register(request):
                 return redirect("register")
             else:
                 user = User.objects.create_user(
-                    full_name=(f"{first_name} {last_name}"),
+                    full_name=name,
                     email=email,
                     password=password,
                 )
