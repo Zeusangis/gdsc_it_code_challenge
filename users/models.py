@@ -46,17 +46,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(_("Is Staff"), default=False)
     date_joined = models.DateTimeField(_("Date Joined"), default=timezone.now)
 
-    groups = models.ManyToManyField(
-        Group,
-        related_name='customuser_set',  # Unique related_name
-        blank=True,
-    )
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name='customuser_set',  # Unique related_name
-        blank=True,
-    )
-
     objects = CustomUserManager()
 
     USERNAME_FIELD = "email"

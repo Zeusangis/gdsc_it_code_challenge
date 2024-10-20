@@ -17,7 +17,7 @@ def login(request):
         else:
             messages.info(request, "Invalid Credentials")
             return redirect("login")
-    return render(request, "alumini/index.html")
+    return render(request, "users/login.html")
 
 
 def register(request):
@@ -49,4 +49,4 @@ def register(request):
 
 def signout(request):
     logout(request)
-    return render(request, "alumini/index.html")
+    return redirect("home")
