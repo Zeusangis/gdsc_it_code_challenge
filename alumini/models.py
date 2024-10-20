@@ -33,3 +33,14 @@ class Alumini(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Category(models.Model):
+    id = models.CharField(
+        _("ID"), primary_key=True, max_length=22, default=shortuuid.uuid, editable=False
+    )
+    category = models.CharField(_("Category"), max_length=100)
+    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
+
+    def __str__(self):
+        return self.category
