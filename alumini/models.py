@@ -44,3 +44,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+
+    class Meta:
+        verbose_name_plural = "Categories"

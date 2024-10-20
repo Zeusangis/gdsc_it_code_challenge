@@ -1,19 +1,22 @@
 {% extends "main.html" %} {% block content %}
 <div class="flex space-x-4 w-full max-w-4xl mx-auto my-10 px-4">
-  <div class="relative flex-grow">
+  <form action="{%url 'home'%}" method="POST" class="relative flex-grow">
+    {% csrf_token %}
     <input
       type="text"
-      placeholder="junior"
+      placeholder="Name of the alumni"
+      name="name"
       class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
     />
     <span class="absolute right-3 top-3 text-gray-400">
       <i class="fas fa-search"></i>
     </span>
-  </div>
+  </form>
   <div class="relative flex-grow">
     <input
       type="text"
-      placeholder="City or postcode"
+      placeholder="Business Name"
+      name="business_name"
       class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
     />
     <span class="absolute right-3 top-3 text-gray-400">

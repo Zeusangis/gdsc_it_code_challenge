@@ -9,10 +9,11 @@ def index(request):
         "id", "full_name", "job_title", "name_of_business", "business_category"
     )
     if request.method == "POST":
-        query = request.POST.get("search")
+        name = request.POST.get("name")
+        business = request.POST.get("business_name")
         aluminis = Alumini.objects.values(
             "id", "full_name", "name_of_business", "business_category"
-        ).filter(full_name__icontains=query)
+        ).filter(full_name__icontains=name)
     context = {"aluminis": aluminis}
     return render(request, "alumini/index.html", context)
 
