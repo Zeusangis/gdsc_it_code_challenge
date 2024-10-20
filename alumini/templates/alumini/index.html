@@ -31,12 +31,11 @@
     <select
       class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
     >
-      <option>Marketing</option>
+      {% for category in categories %}
       <!-- Add more options as needed -->
+      <option value="{{category.id}}">{{category}}</option>
+      {% endfor %}
     </select>
-    <span class="absolute right-3 top-3 text-gray-400 pointer-events-none">
-      <i class="fas fa-chevron-down"></i>
-    </span>
   </div>
   <button
     class="bg-[#800000] text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-[#592730] focus:outline-none focus:ring-2 focus:ring-[#78081C] focus:ring-offset-2"

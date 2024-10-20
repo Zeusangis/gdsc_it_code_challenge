@@ -22,7 +22,9 @@ class Alumini(models.Model):
     business_email = models.EmailField(_("Business Email"), unique=True)
     business_website = models.CharField(_("Business Website"), max_length=100)
     business_description = models.TextField(_("Business Description"), max_length=100)
-    business_category = models.CharField(_("Business Category"), max_length=100)
+    business_category = models.ForeignKey(
+        "Category", verbose_name=_("Business Category"), on_delete=models.CASCADE
+    )
     alumini_discount = models.BooleanField(_("Alumini Discount"), default=False)
     alumini_discount_description = models.TextField(
         _("Alumini Discount Description"), max_length=100
