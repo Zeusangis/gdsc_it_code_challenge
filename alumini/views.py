@@ -2,21 +2,18 @@ from django.shortcuts import render
 from .models import Alumini
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-import pandas as pd
-from django.http import HttpResponse
-import os
+from django.db.models import F
 from .models import Alumini, Category
 
 
 @login_required(login_url="login")
 def index(request):
-    aluminis = Alumini.objects.values(
-        "id", "full_name", "job_title", "name_of_business", "business_category"
-    )
+    aluminis = Alumini.objects.select_related("business_category")
 
-    if request.method == "POST":
-        name = request.POST.get("name", "").strip()
-        business = request.POST.get("business_name", "").strip()
+    if request.method == "GET":
+        name = request.GET.get("name", "").strip()
+        business = request.GET.get("business_name", "").strip()
+        category = request.GET.get("category", "").strip()
 
         if name or business:
             filters = Q()
@@ -24,10 +21,13 @@ def index(request):
                 filters &= Q(full_name__icontains=name)
             if business:
                 filters &= Q(name_of_business__icontains=business)
+            if category:
+                print(category)
+                category = Category.objects.get(id=category)
+                filters &= Q(business_category=category)
 
-            aluminis = Alumini.objects.values(
-                "id", "full_name", "job_title", "name_of_business", "business_category"
-            ).filter(filters)
+            aluminis = aluminis.filter(filters)
+
     categories = Category.objects.all()
     context = {"aluminis": aluminis, "categories": categories}
     return render(request, "alumini/index.html", context)

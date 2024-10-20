@@ -103,8 +103,10 @@
 
     <!-- Category Information -->
     <div class="flex items-center justify-between bg-gray-100 p-2 rounded">
-      <span class="text-sm font-semibold">Category: Finance</span>
-      {% if request.user.is_admin %}
+      <span class="text-sm font-semibold"
+        >Category: {{alumni.business_category}}</span
+      >
+      {% if request.user.is_staff %}
       <button class="text-gray-600 hover:text-[#800000] flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +151,7 @@
     </div>
   </div>
 
-  {% if request.user.is_admin %}
+  {% if request.user.is_staff %}
   <div class="bg-gray-100 p-4 flex justify-between">
     <button class="text-gray-600 hover:text-[#800000] flex items-center">
       <svg
