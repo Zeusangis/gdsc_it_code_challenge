@@ -42,11 +42,13 @@
             <span>Account</span>
           </a>
         </li>
+        {%if request.user.is_staff %}
         <li
           class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
         >
           <a href="/admin">Admin</a>
         </li>
+        {% endif %}
 
         <li
           class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"

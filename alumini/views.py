@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Alumini
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models import F
 from .models import Alumini, Category
+
+
+def error_404_view(request, exception):
+    return render(request, "alumini/pageNotFound.html", status=404)
 
 
 @login_required(login_url="login")
@@ -23,7 +26,7 @@ def index(request):
             if business:
                 filters &= Q(name_of_business__icontains=business)
             if category:
-                category = Category.objects.get(id=category)
+                category = Category.objects.get(category=category)
                 filters &= Q(business_category=category)
             aluminis = aluminis.filter(filters)
 
@@ -45,6 +48,13 @@ def alumni(request, id):
     alumni = Alumini.objects.get(id=id)
     context = {"alumni": alumni}
     return render(request, "alumini/alumni.html", context)
+
+
+@login_required(login_url="login")
+def admin(request):
+    if not request.user.is_staff:
+        return render(request, "alumni/pageNotFound.html")
+    return redirect("/admin/")
 
 
 # def add_data(request):
