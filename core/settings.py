@@ -14,7 +14,11 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "gdsc_it_code_challenge.railway.internal"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "gdscitcodechallenge-production.up.railway.app",
+]
 
 
 # Application definition
