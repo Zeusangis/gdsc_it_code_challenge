@@ -6,7 +6,7 @@ from .models import Alumini, Category
 
 
 def error_404_view(request, exception):
-    return render(request, "alumini/pageNotFound.html", status=404)
+    return render(request, "alumini/404.html")
 
 
 @login_required(login_url="login")
@@ -52,9 +52,9 @@ def alumni(request, id):
 
 @login_required(login_url="login")
 def admin(request):
-    if not request.user.is_staff:
-        return render(request, "alumni/pageNotFound.html")
-    return redirect("/admin/")
+    if request.user.is_staff:
+        return redirect("/admin/")
+    return render(request, "alumni/404.html")
 
 
 # def add_data(request):
