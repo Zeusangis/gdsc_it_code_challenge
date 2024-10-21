@@ -113,11 +113,11 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-STATIC_ROOT = BASE_DIR / "static"  # Use "staticfiles" to avoid conflict
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Use "staticfiles" to avoid conflict
 
 # These are the directories where your static files live during development
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles",  # Ensure this is not the same as STATIC_ROOT
+    BASE_DIR / "static",  # Ensure this is not the same as STATIC_ROOT
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
