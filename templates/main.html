@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
-  </head>
-  <body class="bg-gray-50">
-    {% include "navbar.html" %} {% block content%}{% endblock %}
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="https://utfs.io/f/UwrgskiXFxleNb8FXMYUBQdFgV7rW9H2XyEIwp6xuDAM1tki">
+
+  <title>{%block title%}ULM Alumni Directory{%endblock%}</title>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          container: {
+            center: true,
+            padding: "1rem",
+            screens: {
+              "2xl": "1300px",
+            },
+          },
+        },
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-gray-50">
+  {% include "navbar.html" %} {% block content%}{% endblock %}
+</body>
+
 </html>

@@ -3,6 +3,7 @@ from .models import Alumini
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Alumini, Category
+from django.http import HttpResponse
 
 
 def error_404_view(request, exception):
@@ -48,13 +49,6 @@ def alumni(request, id):
     alumni = Alumini.objects.get(id=id)
     context = {"alumni": alumni}
     return render(request, "alumini/alumni.html", context)
-
-
-@login_required(login_url="login")
-def admin(request):
-    if request.user.is_staff:
-        return redirect("/admin/")
-    return render(request, "alumni/404.html")
 
 
 # def add_data(request):

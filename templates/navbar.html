@@ -1,54 +1,57 @@
 {% load static %}
-<header class="hidden md:flex sticky top-0 bg-white shadow-md items-center justify-between px-8 py-2">
-  <h1>
-    <a class="flex items-center gap-2" href="{% url 'home' %}">
-      <img class="h-6 w-6 md:h-10 md:w-10" src="{% static 'ulm_logo.png' %}" alt="logo" />
-      <h1 class="hidden md:inline md:text-lg lg:text-2xl font-semibold">
-        Alumini Business Directory
-      </h1>
-    </a>
-  </h1>
+<header class="hidden md:block flex items-center">
+  <div class="container md:flex sticky top-0 items-center justify-between py-2">
+    <h1>
+      <a class="flex items-center gap-2" href="{% url 'home' %}">
+        <img class="h-6 w-6 md:h-10 md:w-10" src="https://utfs.io/f/UwrgskiXFxlehRx9WqDn2ixgpqzCw3MaPB9FLrjshSKQOWcG"
+          alt="logo" />
+        <h1 class="hidden md:inline md:text-lg lg:text-2xl font-semibold">
+          Alumini Business Directory
+        </h1>
+      </a>
+    </h1>
 
-  <nav id="menu" class="hidden md:block nav md:font-semibold text-sm lg:text-lg w-full md:w-auto">
-    <ul class="flex md:flex-row items-center">
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer active">
-        <a href="{% url 'home' %}">Home</a>
-      </li>
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
-        <a class="flex items-center" href="{% url 'account' %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-          </svg>
-          <span>Account</span></a>
-      </li>
-      {% if request.user.is_staff %}
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
-        <a href="/admin">Admin</a>
-      </li>
-      {% endif %}
-
-      <li
-        class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}"><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
-            Logout
-          </button></a>
-        {% else %}
-        <a href="{% url 'login' %}"><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
-            Login
-          </button></a>
+    <nav id="menu" class="hidden md:block nav md:font-semibold text-sm lg:text-lg w-full md:w-auto">
+      <ul class="flex md:flex-row items-center">
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer active">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
+          <a class="flex items-center" href="{% url 'account' %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            <span>Account</span></a>
+        </li>
+        {% if request.user.is_staff %}
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
+          <a href="/admin">Admin</a>
+        </li>
         {% endif %}
-      </li>
-    </ul>
-  </nav>
+
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'logout' %}"><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
+              Logout
+            </button></a>
+          {% else %}
+          <a href="{% url 'login' %}"><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
+              Login
+            </button></a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <header class="block md:hidden p-4 flex items-center justify-between">
   <div>
-    <img class="h-6 w-6" src="{% static 'ulm_logo.png' %}" alt="logo" />
+    <img class="h-6 w-6" src="https://utfs.io/f/UwrgskiXFxlehRx9WqDn2ixgpqzCw3MaPB9FLrjshSKQOWcG" alt="logo" />
   </div>
   <div>
     <ul class="flex items-center gap-4">
