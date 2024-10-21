@@ -20,6 +20,7 @@ ALLOWED_HOSTS = [
     "gdscitcodechallenge-production.up.railway.app",
 ]
 
+CSRF_TRUSTED_ORIGINS = ["gdscitcodechallenge-production.up.railway.app"]
 
 # Application definition
 
