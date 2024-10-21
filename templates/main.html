@@ -9,7 +9,12 @@
       type="image/x-icon"
       href="https://utfs.io/f/UwrgskiXFxleNb8FXMYUBQdFgV7rW9H2XyEIwp6xuDAM1tki"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>{%block title%}ULM Alumni Directory{%endblock%}</title>
     <script>
       tailwind.config = {
@@ -28,7 +33,7 @@
     </script>
   </head>
 
-  <body class="bg-gray-50">
+  <body class="bg-gray-50" style="font-family: 'Lexend', sans-serif">
     {% include "navbar.html" %} {% block content%}{% endblock %}
   </body>
 </html>
