@@ -13,29 +13,35 @@
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Full name</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          John Doe
+          {{user.full_name}}
         </dd>
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Email address</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          johndoe@example.com
+          {{user.email}}
         </dd>
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Phone number</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          (123) 456-7890
+          {{user.phone_number}}
         </dd>
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Address</dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          123 Main St<br />
-          Anytown, USA 12345
+          {{user.address}}
         </dd>
       </div>
     </dl>
+  </div>
+  <div>
+    <a
+      href="#"
+      class="block w-full bg-gray-800 border border-transparent rounded-md py-2 px-4 text-sm text-center font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+      >Edit</a
+    >
   </div>
 </div>
 {% endblock %}

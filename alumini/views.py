@@ -14,18 +14,17 @@ def index(request):
         name = request.GET.get("name", "").strip()
         business = request.GET.get("business_name", "").strip()
         category = request.GET.get("category", "").strip()
+        print(category)
 
-        if name or business:
+        if name or business or category:
             filters = Q()
             if name:
                 filters &= Q(full_name__icontains=name)
             if business:
                 filters &= Q(name_of_business__icontains=business)
             if category:
-                print(category)
                 category = Category.objects.get(id=category)
                 filters &= Q(business_category=category)
-
             aluminis = aluminis.filter(filters)
 
     categories = Category.objects.all()
@@ -35,7 +34,9 @@ def index(request):
 
 @login_required(login_url="login")
 def account(request):
-    return render(request, "alumini/account.html")
+    user = request.user
+    context = {"user": user}
+    return render(request, "alumini/account.html", context)
 
 
 @login_required(login_url="login")

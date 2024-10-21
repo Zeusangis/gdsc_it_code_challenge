@@ -45,6 +45,12 @@
         <li
           class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
         >
+          <a href="/admin">Admin</a>
+        </li>
+
+        <li
+          class="p-4 border-b-2 border-[#800000] border-opacity-0 hover:border-opacity-100 hover:text-[#800000] duration-200 cursor-pointer"
+        >
           {% if request.user.is_authenticated %}
           <a href="{%url 'logout'%}"
             ><button class="bg-[#800000] text-white px-3 py-2 rounded-lg">
