@@ -20,11 +20,6 @@ ALLOWED_HOSTS = [
     "gdscitcodechallenge-production.up.railway.app",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://gdscitcodechallenge-production.up.railway.app",
-    # Add any other domains that need access
-]
-
 
 # Application definition
 
@@ -49,7 +44,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
