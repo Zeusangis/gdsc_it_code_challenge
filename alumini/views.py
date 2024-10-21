@@ -10,7 +10,6 @@ def error_404_view(request, exception):
     return render(request, "alumini/404.html")
 
 
-@login_required(login_url="login")
 def index(request):
     aluminis = Alumini.objects.select_related("business_category")
 
