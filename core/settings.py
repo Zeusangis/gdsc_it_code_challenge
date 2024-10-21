@@ -14,13 +14,9 @@ SECRET_KEY = "django-insecure-9g7a^!@p8a*(ecuuhxm@3*=brwfxowr^^^)z4iajf9^y(!$d53
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "gdscitcodechallenge-production.up.railway.app",
-]
+ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["gdscitcodechallenge-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://gdscitcodechallenge-production.up.railway.app"]
 
 # Application definition
 
