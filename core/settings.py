@@ -16,7 +16,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["https://gdscitcodechallenge-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://ulm.up.railway.app"]
 
 # Application definition
 
