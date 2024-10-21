@@ -6,6 +6,8 @@ from django.contrib.auth import logout, authenticate, login as auth_login
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     if request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
@@ -21,6 +23,8 @@ def login(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     if request.method == "POST":
         name = request.POST["name"]
         email = request.POST["email"]
