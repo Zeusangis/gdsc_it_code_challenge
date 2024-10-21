@@ -20,6 +20,11 @@ ALLOWED_HOSTS = [
     "gdscitcodechallenge-production.up.railway.app",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://gdscitcodechallenge-production.up.railway.app",
+    # Add any other domains that need access
+]
+
 
 # Application definition
 
