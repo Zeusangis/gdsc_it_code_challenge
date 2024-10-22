@@ -1,6 +1,7 @@
 from django.db import models
 import shortuuid
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import FileExtensionValidator
 
 
 class Alumini(models.Model):
@@ -35,6 +36,20 @@ class Alumini(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class AddFromCsv(models.Model):
+    id = models.CharField(
+        _("ID"), primary_key=True, max_length=22, default=shortuuid.uuid, editable=False
+    )
+    data = models.FileField(
+        _("CSV File"),
+        upload_to="csv_files/",
+        validators=[FileExtensionValidator(["csv"])],
+    )
+
+    def __str__(self):
+        return self.id
 
 
 class Category(models.Model):

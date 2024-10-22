@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mx-auto my-10">
+  <h1 class="text-2xl font-bold mb-5">Upload CSV</h1>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Upload CSV
+    </button>
+  </form>
+</div>
+{% endblock %}
