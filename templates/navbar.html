@@ -65,6 +65,9 @@
         </svg>
         </a>
       </li>
+      {% if request.user.is_staff %}
+      <li><a href="/admin">Admin</a></li>
+      {% endif %}
       <li>
         {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}">

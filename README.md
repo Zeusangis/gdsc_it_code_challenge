@@ -1,65 +1,66 @@
-# IT Code Challenge
+# Project Name
 
-This project is a Django-based web application designed to solve a specific IT code challenge. The application demonstrates the use of Django's powerful features to create a robust and scalable solution.
+## Overview
 
-## Table of Contents
+This project is a Django-based application designed to handle the alumini directory where user can search aluminis associated with ULM and see their details. It includes a variety of features to enhance user experience and functionality. It is entirely made up of Django and Tailwind CSS.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+## Features
+
+- **User Authentication**: Secure user registration, login, and logout functionalities.
+- **Profile Management**: Users can create, update, and delete their profiles.
+- **CRUD Operations**: Full Create, Read, Update, and Delete operations for [specific entities, e.g., posts, products].
+- **Search Functionality**: Advanced search options to find specific items or information.
+- **Responsive Design**: Mobile-friendly design to ensure usability across different devices.
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/it_code_challenge.git
+   git clone https://github.com/Zeusangis/gdsc_it_code_challenge.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd it_code_challenge
+   cd gdsc_it_code_challenge
    ```
-3. Create a virtual environment:
-   ```bash
-   python3 -m venv env
-   ```
-4. Activate the virtual environment:
-   - On Windows:
-     ```bash
-     .\env\Scripts\activate
-     ```
-   - On macOS and Linux:
-     ```bash
-     source env/bin/activate
-     ```
-5. Install the required dependencies:
+3. Install the dependencies:
    ```bash
    pip install -r requirements.txt
+   ```
+4. Apply migrations:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+5. Run the development server:
+   ```bash
+   python manage.py runserver
    ```
 
 ## Usage
 
-1. Apply migrations:
-   ```bash
-   python manage.py migrate
-   ```
-2. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
-3. Open your web browser and go to `http://127.0.0.1:8000/` to view the application.
+- Access the application at `http://127.0.0.1:8000/`.
+- Register a new user or log in with existing credentials.
+- Sample user credentials:
+  - Email: `qefuniz@mailinator.com`
+  - Password: `Pa$$w0rd!`
+- Sample Admin credentials:
+  - Email: `unishkhadka@gmail.com`
+  - Password: `123456`
+- Explore the features listed above.
 
-## Features
+## Demo Application
 
-- User authentication and authorization
-- CRUD operations for managing data
-- Responsive design
+The application is deployed on railway and can be accessed [here](https://ulm.up.railway.app/).
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-## License
+## Contact
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+For any inquiries or feedback, please contact unishk152@gmail.com.
