@@ -50,6 +50,13 @@ def alumni(request, id):
     return render(request, "alumini/alumni.html", context)
 
 
+@login_required(login_url="login")
+def edit_profile(request):
+    user = request.user
+    context = {"user": user}
+    return render(request, "alumini/edit_profile.html", context)
+
+
 # def add_data(request):
 #     # Load the data from the CSV file
 #     csv_path = os.path.join(os.path.dirname(__file__), "data.csv")

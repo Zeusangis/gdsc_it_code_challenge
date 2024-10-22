@@ -12,35 +12,47 @@
     <dl class="sm:divide-y sm:divide-gray-200">
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Full name</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          {{user.full_name}}
-        </dd>
+        <input
+          value="{{user.full_name}}"
+          class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
+        />
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Email address</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <dd
+          class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
+        >
           {{user.email}}
         </dd>
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Phone number</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          {{user.phone_number}}
-        </dd>
+        <input
+          value="{{user.phone_number}}"
+          class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
+        />
       </div>
       <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">Address</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          {{user.address}}
-        </dd>
+        <input
+          value="{{user.address}}"
+          class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
+        />
+      </div>
+      <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Password</dt>
+        <input
+          value="{{user.password}}"
+          class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
+        />
       </div>
     </dl>
   </div>
   <div>
     <a
-      href="{% url 'edit_profile' %}"
+      href="#"
       class="block w-full bg-[#800000] border border-transparent rounded-md py-2 px-4 text-sm text-center font-medium text-white hover:bg-[#801818]"
-      >Edit</a
+      >Update</a
     >
   </div>
 </div>
