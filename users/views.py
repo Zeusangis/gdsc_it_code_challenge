@@ -13,8 +13,8 @@ def login(request):
         password = request.POST["password"]
         user = authenticate(request, email=email, password=password)
         if user is not None:
-            messages.success(request, "Login successful")
             auth_login(request, user)
+            messages.success(request, "Login successful")
             return redirect("home")
         else:
             messages.error(request, "Invalid Credentials")

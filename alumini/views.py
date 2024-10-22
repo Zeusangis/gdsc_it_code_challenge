@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Alumini, Category
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 def error_404_view(request, exception):
@@ -17,6 +18,7 @@ def index(request):
         name = request.GET.get("name", "").strip()
         business = request.GET.get("business_name", "").strip()
         category = request.GET.get("category", "").strip()
+        page_number = request.GET.get("page")
         print(category)
 
         if name or business or category:
@@ -30,6 +32,7 @@ def index(request):
                 filters &= Q(business_category=category)
             aluminis = aluminis.filter(filters)
 
+    paginator = Paginator(aluminis, 10)
     categories = Category.objects.all()
     context = {"aluminis": aluminis, "categories": categories}
     return render(request, "alumini/index.html", context)
