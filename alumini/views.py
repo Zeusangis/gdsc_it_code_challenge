@@ -3,7 +3,7 @@ from .models import Alumini
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Alumini, Category
-from django.http import HttpResponse
+from django.contrib import messages
 
 
 def error_404_view(request, exception):
@@ -53,6 +53,15 @@ def alumni(request, id):
 @login_required(login_url="login")
 def edit_profile(request):
     user = request.user
+    if request.method == "POST":
+        user.full_name = request.POST.get("full_name")
+        user.phone_number = request.POST.get("phone_number")
+        user.address = request.POST.get("address")
+        if request.POST.get("password"):
+            user.set_password(request.POST.get("password"))
+        user.save()
+        messages.success(request, "Profile updated successfully")
+        return redirect("account")
     context = {"user": user}
     return render(request, "alumini/edit_profile.html", context)
 
