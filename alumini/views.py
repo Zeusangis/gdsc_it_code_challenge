@@ -33,30 +33,37 @@ def index(request):
             aluminis = aluminis.filter(filters)
 
     categories = Category.objects.all()
-
     page_number = request.GET.get("page", 1)
     paginator = Paginator(aluminis, 12)
-
     try:
-        paginated_aluminis = paginator.page(page_number)
+        page_number = int(page_number) if page_number else 1
+    except (ValueError, TypeError):
+        page_number = 1
+    try:
+        page_obj = paginator.page(page_number)
     except PageNotAnInteger:
-        paginated_aluminis = paginator.page(1)
+        page_obj = paginator.page(1)
     except EmptyPage:
-        paginated_aluminis = paginator.page(paginator.num_pages)
-    prev_page = (
-        paginated_aluminis.previous_page_number()
-        if paginated_aluminis.has_previous()
-        else None
-    )
+        page_obj = paginator.page(paginator.num_pages)
+    prev_page = int(page_number) - 1 if int(page_number) > 1 else 1
     next_page = (
-        paginated_aluminis.next_page_number() if paginated_aluminis.has_next() else None
+        int(page_number) + 1
+        if int(page_number) < paginator.num_pages
+        else paginator.num_pages
     )
+    avail_pages = paginator.num_pages > 1
+    if not page_obj.object_list:  # Check if the queryset is empty
+        no_results = True
+    else:
+        no_results = False
 
     context = {
         "paginator": paginator,
-        "aluminis": paginated_aluminis,
+        "page_obj": page_obj,
         "prev_page": prev_page,
         "next_page": next_page,
+        "avail_pages": avail_pages,
+        "no_results": no_results,
         "categories": categories,
     }
     return render(request, "alumini/index.html", context)
