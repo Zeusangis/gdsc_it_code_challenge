@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Alumini, Category
 from django.contrib import messages
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def error_404_view(request, exception):
@@ -14,12 +14,11 @@ def error_404_view(request, exception):
 def index(request):
     aluminis = Alumini.objects.select_related("business_category")
 
+    # Handling filtering logic based on search parameters
     if request.method == "GET":
         name = request.GET.get("name", "").strip()
         business = request.GET.get("business_name", "").strip()
         category = request.GET.get("category", "").strip()
-        page_number = request.GET.get("page")
-        print(category)
 
         if name or business or category:
             filters = Q()
@@ -28,13 +27,38 @@ def index(request):
             if business:
                 filters &= Q(name_of_business__icontains=business)
             if category:
-                category = Category.objects.get(category=category)
-                filters &= Q(business_category=category)
+                category_obj = Category.objects.get(category=category)
+                filters &= Q(business_category=category_obj)
+
             aluminis = aluminis.filter(filters)
 
-    paginator = Paginator(aluminis, 10)
     categories = Category.objects.all()
-    context = {"aluminis": aluminis, "categories": categories}
+
+    page_number = request.GET.get("page", 1)
+    paginator = Paginator(aluminis, 12)
+
+    try:
+        paginated_aluminis = paginator.page(page_number)
+    except PageNotAnInteger:
+        paginated_aluminis = paginator.page(1)
+    except EmptyPage:
+        paginated_aluminis = paginator.page(paginator.num_pages)
+    prev_page = (
+        paginated_aluminis.previous_page_number()
+        if paginated_aluminis.has_previous()
+        else None
+    )
+    next_page = (
+        paginated_aluminis.next_page_number() if paginated_aluminis.has_next() else None
+    )
+
+    context = {
+        "paginator": paginator,
+        "aluminis": paginated_aluminis,
+        "prev_page": prev_page,
+        "next_page": next_page,
+        "categories": categories,
+    }
     return render(request, "alumini/index.html", context)
 
 

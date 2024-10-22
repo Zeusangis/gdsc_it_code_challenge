@@ -1,16 +1,28 @@
 {% extends "main.html" %} {% block content %}
 <div class="w-full md:max-w-4xl md:mt-8 mx-auto p-4">
-  <form action="{% url 'home' %}" method="GET" class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+  <form
+    action="{% url 'home' %}"
+    method="GET"
+    class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4"
+  >
     <div class="relative flex-grow">
-      <input type="text" placeholder="Name of the alumni" name="name"
-        class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+      <input
+        type="text"
+        placeholder="Name of the alumni"
+        name="name"
+        class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
       <span class="absolute right-3 top-3 text-gray-400">
         <i class="fas fa-search"></i>
       </span>
     </div>
     <div class="relative flex-grow">
-      <input type="text" placeholder="Business Name" name="business_name"
-        class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+      <input
+        type="text"
+        placeholder="Business Name"
+        name="business_name"
+        class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
       <span class="absolute right-3 top-3 text-gray-400">
         <i class="fas fa-map-marker-alt"></i>
       </span>
@@ -18,23 +30,53 @@
     <div class="relative flex-grow">
       <select
         class="w-full p-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        name="category">
+        name="category"
+      >
         <option value="">All</option>
         {% for category in categories %}
         <option value="{{ category }}">{{ category }}</option>
         {% endfor %}
       </select>
     </div>
+    <input type="hidden" name="page" value="{{paginator.page}}" />
     <button
       class="bg-[#800000] text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-[#801818] focus:outline-none focus:ring-2 focus:ring-[#801818] focus:ring-offset-2 w-full md:w-auto"
-      type="submit">
+      type="submit"
+    >
       Search
     </button>
   </form>
 </div>
 
-<div class="container px-4 w-full mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div
+  class="container px-4 w-full mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-4"
+>
   {% for alumini in aluminis %} {% include "alumini/alumni_cards.html" %}
   {%endfor %}
+</div>
+<div class="container px-4 w-full mx-auto my-10 flex justify-center space-x-1">
+  <a href="{% url 'home' %}?page={{prev_page}}">
+    <button
+      class="rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#800000] hover:border-[#800000] focus:text-white focus:bg-[#800000] focus:border-[#800000] active:border-[#800000] active:text-white active:bg-[#800000] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+    >
+      Prev
+    </button>
+  </a>
+  {% for i in paginator.page_range %}
+  <a href="{% url 'home' %}?page={{i}}">
+    <button
+      class="min-w-9 rounded-md py-2 px-3 border border-slate-300 hover:text-white text-center text-sm text-slate-600 transition-all shadow-md hover:shadow-lg focus:bg-[#800000] focus:shadow-none active:bg-[#800000] hover:bg-[#800000] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+    >
+      {{ i }}
+    </button>
+  </a>
+  {% endfor %}
+  <a href="{% url 'home' %}?page={{next_page}}">
+    <button
+      class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#800000] hover:border-[#800000] focus:text-white focus:bg-[#800000] focus:border-[#800000] active:border-[#800000] active:text-white active:bg-[#800000] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+    >
+      Next
+    </button>
+  </a>
 </div>
 {%endblock%}

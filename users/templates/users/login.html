@@ -68,7 +68,7 @@
         class="min-h-screen flex flex-col items-center justify-center py-6 px-4"
       >
         <div class="max-w-md w-full">
-          <a href="javascript:void(0)"
+          <a href="{%url "home"%}"
             ><img
               class="h-14 w-14 md:h-24 md:w-24 mx-auto mb-6"
               src="https://utfs.io/f/UwrgskiXFxlehRx9WqDn2ixgpqzCw3MaPB9FLrjshSKQOWcG"
@@ -125,6 +125,25 @@
                 >
               </p>
             </form>
+            <a href="{% url "home" %}">
+              <p class="text-[#800000] text-sm text-center">
+                <svg
+                  class="inline-block w-4 h-4 mr-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                <span>Back to home</span>
+              </p>
+            </a>
           </div>
         </div>
       </div>
