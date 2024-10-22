@@ -13,11 +13,11 @@ def login(request):
         password = request.POST["password"]
         user = authenticate(request, email=email, password=password)
         if user is not None:
-            messages.info(request, "Login successful")
+            messages.success(request, "Login successful")
             auth_login(request, user)
             return redirect("home")
         else:
-            messages.info(request, "Invalid Credentials")
+            messages.error(request, "Invalid Credentials")
             return redirect("login")
     return render(request, "users/login.html")
 
@@ -32,7 +32,7 @@ def register(request):
         cpassword = request.POST["cpassword"]
         if password == cpassword:
             if User.objects.filter(email=email).exists():
-                messages.info(request, "Email already exists")
+                messages.error(request, "Email already exists")
                 return redirect("register")
             else:
                 user = User.objects.create_user(
@@ -42,10 +42,10 @@ def register(request):
                 )
                 user.save()
                 auth_login(request, user)
-                messages.info(request, "User created")
+                messages.success(request, "User created")
                 return redirect("home")
         else:
-            messages.info(request, "Password not matching")
+            messages.error(request, "Password not matching")
             return redirect("register")
     return render(request, "users/register.html")
 

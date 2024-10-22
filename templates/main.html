@@ -32,8 +32,33 @@
       };
     </script>
   </head>
-
   <body class="bg-gray-50" style="font-family: 'Lexend', sans-serif">
-    {% include "navbar.html" %} {% block content%}{% endblock %}
+    {% include "navbar.html" %} {% if messages %} {% for message in messages %}
+    <div
+      role="alert"
+      class="mb-4 relative flex w-full p-3 text-sm text-white {% if message.tags == 'info' %} bg-blue-600 {% elif message.tags == 'error' %} bg-red-600 {% elif message.tags == 'success' %} bg-green-600 {% elif message.tags == 'warning' %} bg-orange-600 {% endif %} rounded-md"
+    >
+      {{ message }}
+      <button
+        class="flex items-center justify-center transition-all w-8 h-8 rounded-md text-white hover:bg-white/10 active:bg-white/10 absolute top-1.5 right-1.5"
+        type="button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="h-5 w-5"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    {% endfor %} {% endif %} {% endif %} {% block content%}{% endblock %}
   </body>
 </html>
