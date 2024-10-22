@@ -36,11 +36,7 @@
           <input
             name="phone_number"
             type="tel"
-            value="
-            {% if user.phone_number %}
-            {{user.phone_number}}
-            {% endif %}
-            "
+            value="{% if user.phone_number %}{{user.phone_number}}{% endif %}"
             class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
             placeholder="Enter your phone number"
           />
@@ -50,10 +46,7 @@
           <input
             type="text"
             name="address"
-            value=" 
-            {% if user.address %}
-            {{user.address}} 
-            {%endif%}"
+            value=" {% if user.address %}{{user.address}}{%endif%}"
             class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
             placeholder="Enter your address"
           />
@@ -63,20 +56,21 @@
             New Password(optional)
           </dt>
           <input
+            name="password"
             type="password"
             class="px-3 py-2 mt-1 text-gray-900 sm:mt-0 sm:col-span-2 border border-black rounded-md"
             placeholder="Enter your new password"
           />
         </div>
       </dl>
-    </form>
-  </div>
-  <div>
-    <a
-      href="#"
+    </div>
+    <div>
+      <button
+      type="submit"
       class="block w-full bg-[#800000] border border-transparent rounded-md py-2 px-4 text-sm text-center font-medium text-white hover:bg-[#801818]"
-      >Update</a
-    >
-  </div>
+      >Update</button
+      >
+    </div>
+  </form>
 </div>
 {% endblock %}

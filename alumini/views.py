@@ -5,6 +5,7 @@ from django.db.models import Q
 from .models import Alumini, Category
 from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib import auth
 
 
 def error_404_view(request, exception):
@@ -88,14 +89,15 @@ def alumni(request, id):
 def edit_profile(request):
     user = request.user
     if request.method == "POST":
-        user.full_name = request.POST.get("full_name")
+        user.full_name = request.POST.get("name")
         user.phone_number = request.POST.get("phone_number")
         user.address = request.POST.get("address")
         if request.POST.get("password"):
             user.set_password(request.POST.get("password"))
         user.save()
+        auth.login(request, user)
         messages.success(request, "Profile updated successfully")
-        return redirect("account")
+        return redirect("home")
     context = {"user": user}
     return render(request, "alumini/edit_profile.html", context)
 

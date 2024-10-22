@@ -27,7 +27,7 @@ class Alumini(models.Model):
     )
     alumini_discount = models.BooleanField(_("Alumini Discount"), default=False)
     alumini_discount_description = models.TextField(
-        _("Alumini Discount Description"), max_length=100
+        _("Alumini Discount Description"), max_length=100, blank=True, null=True
     )
     business_logo_link = models.CharField(_("Business Logo Link"), max_length=100)
     user_id = models.CharField(_("User ID"), max_length=100)
