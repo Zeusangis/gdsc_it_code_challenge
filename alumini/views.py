@@ -107,54 +107,46 @@ def edit_profile(request):
     return render(request, "alumini/edit_profile.html", context)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def add_data(request):
-    if request.method == "POST":
-        form = AddFromCsvForm(request.POST, request.FILES)
+# @user_passes_test(lambda u: u.is_superuser)
+# def add_data(request):
+#     if request.method == "POST":
+#         if "csv_file" in request.FILES:
+#             print(request.FILES["csv_file"])
+#             csv = request.FILES["csv_file"]
 
-        if form.is_valid():
-            # Save the uploaded file to the model
-            csv_instance = form.save()
+#             pd.read_csv(csv)
 
-            # Get the path to the uploaded CSV file
-            csv_path = os.path.join(settings.MEDIA_ROOT, str(csv_instance.data))
+#         # Process each row in the CSV file and add it to the Alumini table
+#         for index, row in csv.iterrows():
+#             # Fetch or create the category
+#             category, created = Category.objects.get_or_create(
+#                 category=row["business_category"]
+#             )
 
-            # Load the CSV data into a pandas DataFrame
-            data = pd.read_csv(csv_path)
+#             # Now create the Alumini entry with the foreign key pointing to the category
+#             Alumini.objects.create(
+#                 first_name=row["first_name"],
+#                 last_name=row["last_name"],
+#                 email=row["email"],
+#                 full_name=row["full_name"],
+#                 address=row["address"],
+#                 job_title=row["job_title"],
+#                 name_of_business=row["name_of_business"],
+#                 business_address=row["business_address"],
+#                 business_city=row["business_city"],
+#                 business_state=row["business_state"],
+#                 business_zip=row["business_zip"],
+#                 business_phone=row["business_phone"],
+#                 business_email=row["business_email"],
+#                 business_website=row["business_website"],
+#                 business_description=row["business_description"],
+#                 business_category=category,  # Foreign key reference
+#                 alumini_discount=bool(row["alumini_discount"]),
+#                 alumini_discount_description=row["alumni_discount_description"],
+#                 business_logo_link=row["business_logo_link"],
+#                 user_id=row["user_id"],
+#             )
 
-            # Process each row in the CSV file and add it to the Alumini table
-            for index, row in data.iterrows():
-                # Fetch or create the category
-                category, created = Category.objects.get_or_create(
-                    category=row["business_category"]
-                )
+#         return redirect("admin")
 
-                # Now create the Alumini entry with the foreign key pointing to the category
-                Alumini.objects.create(
-                    first_name=row["first_name"],
-                    last_name=row["last_name"],
-                    email=row["email"],
-                    full_name=row["full_name"],
-                    address=row["address"],
-                    job_title=row["job_title"],
-                    name_of_business=row["name_of_business"],
-                    business_address=row["business_address"],
-                    business_city=row["business_city"],
-                    business_state=row["business_state"],
-                    business_zip=row["business_zip"],
-                    business_phone=row["business_phone"],
-                    business_email=row["business_email"],
-                    business_website=row["business_website"],
-                    business_description=row["business_description"],
-                    business_category=category,  # Foreign key reference
-                    alumini_discount=bool(row["alumini_discount"]),
-                    alumini_discount_description=row["alumni_discount_description"],
-                    business_logo_link=row["business_logo_link"],
-                    user_id=row["user_id"],
-                )
-
-            return redirect("admin")
-    else:
-        form = AddFromCsvForm()
-
-    return render(request, "alumini/upload_csv.html", {"form": form})
+#     return render(request, "alumini/upload_csv.html")
