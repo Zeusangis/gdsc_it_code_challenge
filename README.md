@@ -12,6 +12,12 @@ This project is a Django-based application designed to handle the alumini direct
 - **Search Functionality**: Advanced search options to find specific items or information.
 - **Responsive Design**: Mobile-friendly design to ensure usability across different devices.
 
+## Technologies
+
+- **Python**: The programming language used to develop the application.
+- **Django**: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
+
 ## Installation
 
 1. Clone the repository:
