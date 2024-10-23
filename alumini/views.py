@@ -58,7 +58,7 @@ def index(request):
         else paginator.num_pages
     )
     avail_pages = paginator.num_pages > 1
-    if not page_obj.object_list:  # Check if the queryset is empty
+    if not page_obj.object_list:
         no_results = True
     else:
         no_results = False
