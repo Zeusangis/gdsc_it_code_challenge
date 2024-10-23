@@ -51,12 +51,6 @@ def index(request):
         page_obj = paginator.page(1)
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
-    prev_page = int(page_number) - 1 if int(page_number) > 1 else 1
-    next_page = (
-        int(page_number) + 1
-        if int(page_number) < paginator.num_pages
-        else paginator.num_pages
-    )
     avail_pages = paginator.num_pages > 1
     if not page_obj.object_list:
         no_results = True
@@ -66,8 +60,6 @@ def index(request):
     context = {
         "paginator": paginator,
         "page_obj": page_obj,
-        "prev_page": prev_page,
-        "next_page": next_page,
         "avail_pages": avail_pages,
         "no_results": no_results,
         "categories": categories,
