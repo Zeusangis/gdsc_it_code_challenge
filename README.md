@@ -1,8 +1,10 @@
-# Project Name
+# ULM Alumni Directory
 
 ## Overview
 
-This project is a Django-based application designed to handle the alumini directory where user can search aluminis associated with ULM and see their details. It includes a variety of features to enhance user experience and functionality. It is entirely made up of Django and Tailwind CSS.
+![Project Screenshot](https://utfs.io/f/UwrgskiXFxlexB1uUk0ZCoYILrtFR6MyfNJx4bmw0EeB71sq)
+
+This project is a Django-based application designed to handle the alumni directory where users can search alumni associated with ULM and see their details. It includes a variety of features to enhance user experience and functionality. It is entirely made up of Django and Tailwind CSS.
 
 ## Features
 
