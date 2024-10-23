@@ -7,10 +7,11 @@ This project is a Django-based application designed to handle the alumini direct
 ## Features
 
 - **User Authentication**: Secure user registration, login, and logout functionalities.
-- **Profile Management**: Users can create, update, and delete their profiles.
-- **CRUD Operations**: Full Create, Read, Update, and Delete operations for [specific entities, e.g., posts, products].
-- **Search Functionality**: Advanced search options to find specific items or information.
+- **Profile Management**: Users can create and update their profiles.
+- **Search Functionality**: Advanced search options to find specific alumnis.
 - **Responsive Design**: Mobile-friendly design to ensure usability across different devices.
+- **Admin Panel**: Django admin panel to manage users, alumnis,categories and other entities.
+- **Pagination**: Display a limited number of items per page to improve performance.
 
 ## Technologies
 
