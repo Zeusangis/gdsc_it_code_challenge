@@ -56,7 +56,7 @@ This project is a Django-based application designed to handle the alumni directo
   - Email: `unishkhadka@gmail.com`
   - Password: `123456`
 - Explore the features listed above.
-  Note: Please do not mess with the admin panel as it is a shared resource.
+- Note: Please do not mess with the admin panel as it is a shared resource.
 
 ## Demo Application
 
