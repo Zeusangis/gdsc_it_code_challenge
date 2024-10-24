@@ -14,6 +14,7 @@ This project is a Django-based application designed to handle the alumni directo
 - **Responsive Design**: Mobile-friendly design to ensure usability across different devices.
 - **Admin Panel**: Django admin panel to manage users, alumnis,categories and other entities.
 - **Pagination**: Display a limited number of items per page to improve performance.
+- **404 Page**: Custom 404 page to handle invalid URLs.
 
 ## Technologies
 
